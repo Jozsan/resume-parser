@@ -28,15 +28,15 @@
     "lint": "prettier --single-quote --trailing-comma es5 --write test.js src/*.js src/**/*.js src/**/**/*.js"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
-    "request": "^2.83.0",
-    "textract": "^2.2.0",
-    "tracer": "^0.8.11",
-    "underscore": "^1.8.3"
+    "cheerio": "^1.0.0-rc.10",
+    "request": "^2.88.0",
+    "textract": "^2.5.0",
+    "tracer": "^1.1.4",
+    "underscore": "^1.13.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "prettier": "1.10.2"
+    "@babel/cli": "^7.14.3",
+    "@babel/preset-env": "^7.14.3",
+    "prettier": "2.3.1"
   }
 }
