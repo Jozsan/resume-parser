@@ -1,45 +1,40 @@
-var _ = require('underscore');
+class Resume {
 
-module.exports = function() {
-  return new Resume();
-};
+  constructor() {
+    this.parts = {}
+  }
 
-function Resume() {
-  // generic resume format
-  this.parts = {};
+  addKey(key, value) {
+
+    value = value || ''
+    value = value.trim()
+
+    if (value) {
+      if (this.has(this.parts, key)) value = this.parts[key] + value;
+
+      this.parts[key] = value
+    }
+  }
+
+  addObject(key, options) {
+
+    if (this.has(this.parts, key)) this.parts[key] = {}
+
+    for (const [optionVal, optionName] of Object.entries(options)) {
+      if (optionVal) self.parts[key][optionName] = optionVal
+    }
+  }
+
+  has(obj, key) {
+    const keyParts = key.split('.')
+
+    return !!obj && (
+      keyParts.length > 1
+        ? this.has(obj[key.split('.')[0]], keyParts.slice(1).join('.'))
+        : hasOwnProperty.call(obj, key)
+    )
+  }
+
 }
 
-Resume.prototype.addKey = function(key, value) {
-  value = value || '';
-  value = value.trim();
-  // reject falsy values
-  if (value) {
-    if (_.has(this.parts, key)) {
-      value = this.parts[key] + value;
-    }
-
-    this.parts[key] = value;
-  }
-};
-
-Resume.prototype.addObject = function(key, options) {
-  var self = this;
-
-  if (!_.has(this.parts, key)) {
-    this.parts[key] = {};
-  }
-
-  _.forEach(options, function(optionVal, optionName) {
-    if (optionVal) {
-      self.parts[key][optionName] = optionVal;
-    }
-  });
-};
-
-/**
- *
- * @returns {String}
- */
-Resume.prototype.jsoned = function() {
-  return JSON.stringify(this.parts);
-};
+module.exports = Resume

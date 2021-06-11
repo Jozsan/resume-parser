@@ -31,8 +31,7 @@
     "cheerio": "^1.0.0-rc.10",
     "request": "^2.88.0",
     "textract": "^2.5.0",
-    "tracer": "^1.1.4",
-    "underscore": "^1.13.1"
+    "tracer": "^1.1.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.3",
